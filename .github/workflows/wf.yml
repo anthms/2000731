@@ -14,4 +14,4 @@ jobs:
           ${{ github.event.workflow_run.artifacts_url }} |
           jq .artifacts[].id)
 
-          echo https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/$VAR
+          echo "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/$VAR"
