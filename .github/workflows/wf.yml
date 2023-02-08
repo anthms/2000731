@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: |
           ART_ID = $(curl -H "Accept: application/vnd.github+json" \
-          ${{ github.workflow_run.artifacts_url }} |
+          ${{ github.event.workflow_run.artifacts_url }} |
           jq .artifacts[].id)
           
-          echo "https://github.com/${{ github.repository }}/suites/${{ github.workflow_run.check_suite_id }}/artifacts/$ART_ID"
+          echo "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/$ART_ID"
