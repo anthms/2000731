@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          ART_ID = $(curl -H "Accept: application/vnd.github+json" \
+          curl -H "Accept: application/vnd.github+json" \
           ${{ github.event.workflow_run.artifacts_url }} |
-          jq .artifacts[].id)
-          
-          echo $ART_ID
+          jq .artifacts[].id
