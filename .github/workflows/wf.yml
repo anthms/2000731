@@ -1,0 +1,11 @@
+name: Create Artifact URLs
+
+on:
+  workflow_run:
+		workflows: ["Upload Artifact"]
+		types: [completed]
+
+jobs:
+  job-two:
+    runs-on: ubuntu-latest
+    steps:
