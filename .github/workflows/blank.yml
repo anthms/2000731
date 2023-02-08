@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
+  job-one:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -10,3 +10,12 @@ jobs:
         with:
           name: art-one
           path: README.md
+    
+  job-two:
+    needs: job-one
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          gh api \
+          -H "Accept: application/vnd.github+json" \
+          /repos/${{ github.repository}}/actions/runs/${{ github.run_id }}/artifacts
