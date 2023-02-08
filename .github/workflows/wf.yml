@@ -9,4 +9,5 @@ jobs:
   job-two:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github) }}"
+      - run: curl -H "Accept: application/vnd.github+json" ${{ github.workflow_run.artifacts_url }}
+        
