@@ -5,3 +5,8 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v3
+        with:
+          name: art-one
+          path: README.md
