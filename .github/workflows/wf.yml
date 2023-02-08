@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -H "Accept: application/vnd.github+json" \
+          VAR=$(curl -H "Accept: application/vnd.github+json" \
           ${{ github.event.workflow_run.artifacts_url }} |
-          jq .artifacts[].id
+          jq .artifacts[].id)
+
+          echo https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/$VAR
